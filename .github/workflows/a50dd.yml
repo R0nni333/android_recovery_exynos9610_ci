@@ -15,7 +15,10 @@ jobs:
     - name: Run pre-build housekeeping
       run: |
         docker rmi `docker images -q`
-        sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/sudo apt/sources.list.d
+        sudo systemctl stop mysql
+        sudo apt purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
+        sudo rm -rf /etc/mysql /var/lib/mysql /var/log/mysql
+        sudo rm -rf /usr/share/dotnet etc/php /etc/sudo apt/sources.list.d
         sudo apt -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* php*
         sudo apt update
         sudo apt -y autoremove --purge
@@ -116,7 +119,10 @@ jobs:
     - name: Run pre-build housekeeping
       run: |
         docker rmi `docker images -q`
-        sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/sudo apt/sources.list.d
+        sudo systemctl stop mysql
+        sudo apt purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
+        sudo rm -rf /etc/mysql /var/lib/mysql /var/log/mysql
+        sudo rm -rf /usr/share/dotnet etc/php /etc/sudo apt/sources.list.d
         sudo apt -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* php*
         sudo apt update
         sudo apt -y autoremove --purge
