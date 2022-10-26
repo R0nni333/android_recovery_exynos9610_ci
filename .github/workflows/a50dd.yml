@@ -195,7 +195,7 @@ jobs:
         mv ./out/target/product/a50dd/recovery.img ./package_shrp/recovery.img -f
         cd ./package_shrp
         BUILD=$(date +%s); sed -i "s/buildnumber_here/$BUILD/" ./Files/SHRP/data/shrp_info.json
-        zip -9 -r ./SHRP_v3.2_stable-Unofficial_a50-$(date +%s).zip ./*
+        zip -9 -r ./SHRP_v3.1_stable-Unofficial_a50-$(date +%s).zip ./*
         cd ..
         mkdir release
         mv ./package_shrp/SHRP*.zip ./release/ -f
@@ -205,7 +205,7 @@ jobs:
         cd ./package_shrp
         tar -H ustar -c recovery.img vbmeta.img > recovery.tar
         cd ..
-        mv ./package_shrp/recovery.tar ./release/ODIN-SHRP_v3.2_stable-Unofficial_a50-$(date +%s).tar -f
+        mv ./package_shrp/recovery.tar ./release/ODIN-SHRP_v3.1_stable-Unofficial_a50-$(date +%s).tar -f
 
     - name: Upload release artifacts
       uses: actions/upload-artifact@v2
